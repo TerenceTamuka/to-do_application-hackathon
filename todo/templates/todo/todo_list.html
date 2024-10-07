@@ -1,0 +1,15 @@
+<!-- todo_list.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>My To-Do List</h2>
+<a href="{% url 'todo-create' %}">Create New Task</a>
+<ul>
+    {% for todo in todos %}
+    <li>
+        <strong>{{ todo.title }}</strong>
+        <a href="{% url 'todo-edit' todo.pk %}">Edit</a>
+        <a href="{% url 'todo-delete' todo.pk %}">Delete</a>
+    </li>
+    {% endfor %}
+</ul>
