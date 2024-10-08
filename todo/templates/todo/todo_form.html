@@ -30,12 +30,11 @@
                     </div>
                 {% endif %}
 
+                
                 <!-- Submit Button -->
-                <form method="POST" action="{% url 'todo_form' %}">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <button type="submit" class="btn btn-primary">Create To-Do Item</button>
-                </form>
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary">Create To-Do list</button>
+                </div>
             </form>
         </div>
     </div>

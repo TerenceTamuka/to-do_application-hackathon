@@ -104,6 +104,18 @@ body {
     transition: background-color 0.3s ease;
 }
 
+.text-prompt{
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #c1df04;
+}
+
+.login-prompt {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+}
+
 .btn-primary:hover {
     background-color: rgb(3, 72, 112); /* Darker shade on hover */
 }
@@ -149,4 +161,26 @@ body {
     .footer a {
         font-size: 2rem; /* Slightly smaller for mobile */
     }
+}
+
+/* Sign up Page */
+
+.mb-4{
+    color: #317773;
+}
+
+.register-message{
+    font-size: 1.5rem;
+    text-align: center;
+    color: #317773;
+}
+
+.mt-4{
+    color: #317773;
+}
+
+/* Sign up link */
+
+.link{
+    color: #c1df04;
 }
