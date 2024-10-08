@@ -27,9 +27,14 @@ def todo_list(request, pk):
         {'todo': TodoItem})
 
 @login_required
-def todo_list(request):
-    todos = TodoItem.objects.filter(user=request.user)
+def todo_list(request, pk):
+    # Ensure the user is viewing their own list
+    if request.user.pk != pk:
+        return redirect('index')  # Prevent access to another user's todo list
+
+    todos = TodoItem.objects.filter(user=request.user)  # Get todos for logged-in user
     return render(request, 'todo/todo_list.html', {'todos': todos})
+
 
 @login_required
 def todo_create(request):
@@ -40,11 +45,10 @@ def todo_create(request):
             todo.user = request.user  # Associate the To-Do with the logged-in user
             todo.save()
             messages.success(request, 'Your to-do item has been successfully created!')
-            return redirect('todo-list')
+            return redirect('todos', pk=request.user.pk)  # Redirect to the user's todo list page
     else:
         form = TodoForm()
     return render(request, 'todo/todo_form.html', {'form': form})
-
 
 @login_required
 def edit_todo(request, todo_id):
