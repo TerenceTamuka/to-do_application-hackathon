@@ -20,11 +20,11 @@ from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('todo_list/', include('todo.urls'), name="todo-urls"),
     path("accounts/", include("allauth.urls")),
-    path('summernote/', include('django_summernote.urls')),
-    path('', include('todo.urls')),
-    path('login/', auth_views.LoginView.as_view(), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),  # Login, logout
+    path('summernote/', include('django_summernote.urls')),  # Summernote URLs
+    path('', include('todo.urls')),  # Default URL
 ]
 
