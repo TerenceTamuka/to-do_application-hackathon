@@ -10,7 +10,7 @@ from django.shortcuts import render
 
 
 def index(request):
-    todo = todo.objects.all()
+    todo = TodoItem.objects.all()
     context = {
         'todo-list': todo,
         # Pass authentication status
@@ -18,7 +18,7 @@ def index(request):
     }
     return render(request, 'todo/index.html', context)
 
-def service_detail(request, pk):
+def todo_list(request, pk):
     # function code
     TodoItem = get_object_or_404(TodoItem, pk=pk)
     return render(

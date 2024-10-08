@@ -1,6 +1,6 @@
 {% load static %}
 
-{% url 'todo-list' as my_todo_list_url %}
+{% url 'todo' as my_todo_list_url %}
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
@@ -53,7 +53,7 @@
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a {% if 'todo' in request.path %} class="nav-link active" {% else %} class="nav-link" {% endif %}
-                            href="{% url 'todo-list' %}">My To-Do List</a>
+                            href="{% url 'todo_form' %}">My To-Do List</a>
                     </li>
                     <li class="nav-item">
                         <a {% if 'logout' in request.path %} class="nav-link active" {% else %} class="nav-link" {% endif %}

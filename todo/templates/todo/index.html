@@ -1,3 +1,5 @@
+
+
 {% extends 'base.html' %}
 {% block body_class %}{}{% endblock %}
 {% load static %}
@@ -18,13 +20,13 @@
         <div class="col-md-12 mb-4">
             <div class="card h-100 shadow-sm">
                 <!-- To-Do List Information -->
-                <div class="card-body text-center">
+                <div class="card-body text-center welcome-text">
                     <h3 class="card-title" style="cursor: pointer;">Create Your To-Do List</h3>
                     <p class="card-text">Manage your tasks, stay organized, and accomplish your goals efficiently.</p>
 
                     <!-- Create To-Do List Button for Authenticated Users -->
                     {% if user.is_authenticated %}
-                        <a href="{% url 'todo-create' %}" class="btn btn-primary">Create a New To-Do List</a>
+                        <a href="{% url 'todo_form' %}" class="btn btn-primary">Create a New To-Do List</a>
                     {% else %}
                         <p class="text-muted">Please <a href="{% url 'login' %}">login</a> to create and manage your to-do list.</p>
                     {% endif %}

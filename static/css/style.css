@@ -62,10 +62,51 @@ body {
 .welcome-text,
 .bookings-update-message {
     color: #fff;
-    font-size: 1.5rem;
+    font-size: 1.8rem; /* Slightly larger for better readability */
     font-weight: 700;
     text-align: center;
-    padding: 1rem 0.5rem;
-    background-color: rgba(4, 95, 39, 0.811);
+    padding: 1.5rem 1rem; /* Increased padding for more space */
+    background: linear-gradient(135deg, rgb(5, 95, 147), rgb(3, 72, 112)); /* Gradient background */
     margin: 0 10%;
+    border-radius: 15px; /* Rounded corners for smooth edges */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    transition: transform 0.2s ease-in-out; /* Smooth transition effect */
+}
+
+.welcome-text:hover,
+.bookings-update-message:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.welcome-text {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Slight shadow to make text pop */
+}
+
+.btn-primary {
+    background-color: rgb(5, 95, 147); /* Button color match */
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: rgb(3, 72, 112); /* Darker shade on hover */
+}
+
+/* -------------------------------------------------
+   Footer Styling
+--------------------------------------------------- */
+.footer {
+    background-color: #317773;
+    color: #fff;
+    padding: 2rem 0;
+    text-align: center;
+    position: relative;
+}
+
+.text-center{
+    text-decoration: solid;
 }
