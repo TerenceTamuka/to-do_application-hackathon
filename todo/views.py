@@ -16,7 +16,7 @@ def index(request):
         # Pass authentication status
         'is_authenticated': request.user.is_authenticated
     }
-    return render(request, 'tod/index.html', context)
+    return render(request, 'todo/index.html', context)
 
 def service_detail(request, pk):
     # function code
