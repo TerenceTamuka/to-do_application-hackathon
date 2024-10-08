@@ -5,7 +5,7 @@ urlpatterns = [
     # Home page that displays the list of to-do items (index)
     path('', views.index, name='index'),
 
-    path('todos/<int:pk>/', views.todo_list, name='todo'),
+    path('todo/<int:pk>/', views.todo_list, name='todos'),
 
     # View for adding a new to-do item
     path('todo/new/', views.todo_create, name='todo_form'),
