@@ -1,11 +1,42 @@
-<!-- todo_form.html -->
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
-<h2>{% if form.instance.pk %}Edit To-Do{% else %}Create To-Do{% endif %}</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save</button>
-</form>
+
+<div class="container">
+
+    <!-- To-Do List Form Section -->
+    <div class="row mt-5">
+        <div class="col-md-8 offset-md-2">
+            <h3>Create a New To-Do List</h3>
+            <form method="POST">
+                {% csrf_token %}
+                
+                <!-- Loop through all form fields except 'completed' -->
+                {% for field in form %}
+                    {% if field.name != 'completed' %}
+                        <div class="form-group">
+                            {{ field.label_tag }}  <!-- Display field label -->
+                            {{ field }}  <!-- Render the field input -->
+                            <div class="text-danger">{{ field.errors }}</div> <!-- Show validation errors if any -->
+                        </div>
+                    {% endif %}
+                {% endfor %}
+
+                <!-- Only show 'completed' field if the user is a superuser (for example, to mark tasks as completed) -->
+                {% if request.user.is_superuser %}
+                    <div class="form-group">
+                        {{ form.completed.label_tag }}  <!-- Display completed label -->
+                        {{ form.completed }}  <!-- Render the completed checkbox -->
+                    </div>
+                {% endif %}
+
+                <!-- Submit Button -->
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary">Create To-Do List</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 {% endblock %}

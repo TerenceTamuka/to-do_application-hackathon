@@ -11,4 +11,7 @@ class TodoItem(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)  # Link each task to a user
 
     def __str__(self):
-        return self.title
+        return (
+            f"{self.title} - "
+            f"{self.todo.description} on {self.created_at}"
+        )

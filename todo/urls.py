@@ -1,10 +1,21 @@
-# todo/urls.py
 from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.todo_list, name='todo-list'),
-    path('create/', views.todo_create, name='todo-create'),
-    path('edit/<int:pk>/', views.todo_edit, name='todo-edit'),
-    path('delete/<int:pk>/', views.todo_delete, name='todo-delete'),
+    # Home page that displays the list of to-do items (index)
+    path('', views.index, name='index'),
+
+    path('todos/<int:pk>/', views.todo_list, name='todo'),
+
+    # View for adding a new to-do item
+    path('todo/new/', views.todo_create, name='todo_form'),
+
+    # View for editing an existing to-do item
+    path('todo/<int:pk>/edit/', views.edit_todo, name='edit_todo'),
+
+    # View for deleting a specific to-do item
+    path('todo/<int:pk>/delete/', views.delete_todo, name='todo_confirm_delete'),
+
+    path('register/', views.register, name='register'),
 ]
+
