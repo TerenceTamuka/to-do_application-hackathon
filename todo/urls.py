@@ -9,7 +9,7 @@ urlpatterns = [
     path('todo/', views.todo_list, name='todo_list'),
 
     # View for adding a new to-do item
-    path('todo/new/', views.todo_create, name='todo_form'),
+    path('todo/new/', views.todo_create, name='todo_create'),
 
     # View for editing an existing to-do item
     path('todo/<int:todo_id>/edit/', views.edit_todo, name='edit_todo'),
