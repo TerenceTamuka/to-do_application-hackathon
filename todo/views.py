@@ -35,7 +35,6 @@ def todo_list(request):
     return render(request, 'todo/todo_list.html', context)
 
 
-
 @login_required
 def todo_create(request):
     if request.method == 'POST':
@@ -45,7 +44,7 @@ def todo_create(request):
             todo.user = request.user  # Associate the To-Do with the logged-in user
             todo.save()
             messages.success(request, 'Your to-do item has been successfully created!')
-            return redirect('todos', pk=request.user.pk)  # Redirect to the user's todo list page
+            return redirect('todo_list')  # Redirect to the user's todo list page
     else:
         form = TodoForm()
     return render(request, 'todo/todo_form.html', {'form': form})
