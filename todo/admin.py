@@ -13,7 +13,7 @@ class TodoAdmin(SummernoteModelAdmin):
         'created_at',
         'updated_at',  
     ]
-    
+
 
 
 # Register your models here.
