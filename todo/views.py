@@ -53,29 +53,20 @@ def todo_create(request):
 @login_required
 def edit_todo(request, todo_id):
     # Get the to-do item instance by its ID and ensure it belongs to the logged-in user
-    todo = get_object_or_404(ToDo, id=todo_id, user=request.user)
-
-    # Ensure the to-do item belongs to the logged-in user
-    if todo.user != request.user:
-        return redirect('todo_list')  # Redirect to the to-do list if unauthorized
+    todo = get_object_or_404(TodoItem, id=todo_id, user=request.user)
 
     # Handle form submission
     if request.method == 'POST':
-        form = ToDoForm(request.POST, instance=todo)  # Update the to-do item with new data
+        form = TodoForm(request.POST, instance=todo)
         if form.is_valid():
-            form.save()  # Save changes
+            form.save()
             messages.success(request, 'Your to-do item has been successfully updated!')
-            return redirect('todo_list')  # Redirect back to the to-do list
-
+            return redirect('todos', pk=request.user.pk)  # Redirect to user's todo list
     else:
-        form = ToDoForm(instance=todo)  # Pre-fill the form with the existing to-do item details
+        form = TodoForm(instance=todo)
 
     # Render the edit form template
-    return render(
-        request,
-        'todo_app/edit_my_todo_list.html',  # Your template for editing to-do items
-        {'form': form, 'todo': todo}
-    )
+    return render(request, 'todo/edit_my_todo_list.html', {'form': form, 'todo': todo})
 
 @login_required
 def delete_todo(request, pk):

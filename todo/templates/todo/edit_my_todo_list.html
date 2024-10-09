@@ -5,28 +5,18 @@
 
     <div class="row justify-content-center">
         <div class="col-12 col-md-8">
+            <!-- Form for authenticated users to edit their to-do list -->
             <form method="POST">
                 {% csrf_token %}
                 
                 <!-- Loop through all form fields -->
                 {% for field in form %}
-                    {% if field.name != 'approved' %}
-                        <div class="mb-3">
-                            {{ field.label_tag }}  <!-- Display field label -->
-                            {{ field }}  <!-- Render the field input -->
-                            <div class="text-danger">{{ field.errors }}</div>  <!-- Show validation errors if any -->
-                        </div>
-                    {% endif %}
-                {% endfor %}
-                
-                <!-- Only show 'approved' field if the user is a superuser -->
-                {% if request.user.is_superuser %}
-                    <div class="form-group mb-3">
-                        {{ form.approved.label_tag }}  <!-- Display approved label -->
-                        {{ form.approved }}  <!-- Render the approved checkbox -->
-                        <div class="text-danger">{{ form.approved.errors }}</div>  <!-- Show validation errors if any -->
+                    <div class="mb-3">
+                        {{ field.label_tag }}  <!-- Display field label -->
+                        {{ field }}  <!-- Render the field input -->
+                        <div class="text-danger">{{ field.errors }}</div>  <!-- Show validation errors if any -->
                     </div>
-                {% endif %}
+                {% endfor %}
                 
                 <!-- Save Changes Button -->
                 <div class="d-grid gap-2">
@@ -36,7 +26,7 @@
 
             <!-- Option to go back to To-Do List -->
             <div class="text-center mt-3">
-                <a href="{% url 'todo-list' %}" class="btn btn-secondary">Back to My To-Do List</a>
+                <a href="{% url 'todos' request.user.pk %}" class="btn btn-secondary">Back to My To-Do List</a>
             </div>
         </div>    
     </div>
