@@ -30,7 +30,9 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['8000-terencetamu-todoapplica-5rbhaoh5tfp.ws.codeinstitute-ide.net', '.herokuapp.com']
+ALLOWED_HOSTS = ['8000-terencetamu-todoapplica-5rbhaoh5tfp.ws.codeinstitute-ide.net',
+                '.herokuapp.com',
+                '8000-terencetamu-todoapplica-m9ex98y39z8.ws.codeinstitute-ide.net']
 
 
 # Application definition
@@ -72,7 +74,7 @@ ROOT_URLCONF = 'todo_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATES_DIR],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -14,5 +14,5 @@ class TodoItem(models.Model):
     def __str__(self):
         return (
             f"{self.title} - "
-            f"{self.todo.description} on {self.created_at}"
+            f"{self.description} on {self.created_at}"
         )
