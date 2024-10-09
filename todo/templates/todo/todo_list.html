@@ -20,24 +20,13 @@
                                 <strong>Description:</strong> {{ todo.description }}<br>
                                 <strong>Priority:</strong> {{ todo.priority }}<br>
                                 <strong>Due Date:</strong> {{ todo.due_date|date:"F j, Y" }}<br>
-                                <strong>Status:</strong> 
+                                <strong>Status:</strong>
                                 {% if todo.completed %}
                                     <span class="text-success">Completed</span>
                                 {% else %}
                                     <span class="text-warning">Pending</span>
                                 {% endif %}
                             </p>
-                            <div class="todo-icons">
-                                <div class="row">
-                                    <div class="col-auto">
-                                        {% if todo.completed %}
-                                        <p class="card-text status h6"><i class="fas fa-check-circle"></i> Completed</p>
-                                        {% else %}
-                                        <p class="card-text status h6"><i class="fas fa-clock"></i> In Progress</p>
-                                        {% endif %}
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <div class="col-auto">
                             <!-- Edit and Delete buttons for the to-do items -->

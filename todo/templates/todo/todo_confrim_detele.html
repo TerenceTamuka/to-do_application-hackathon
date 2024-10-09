@@ -1,11 +1,14 @@
-<!-- todo_confirm_delete.html -->
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Are you sure you want to delete "{{ todo.title }}"?</h2>
-<form method="post">
-    {% csrf_token %}
-    <button type="submit">Yes, Delete</button>
-</form>
-<a href="{% url 'todo_confirm_delete' %}">Cancel</a>
+<div class="container mt-5">
+    <h1 class="text-center">Confirm Deletion</h1>
+    <p>Are you sure you want to delete the task "{{ todo.title }}"?</p>
+
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a href="{% url 'todo_list' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
 {% endblock %}

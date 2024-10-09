@@ -18,22 +18,22 @@ def index(request):
     }
     return render(request, 'todo/index.html', context)
 
-def todo_list(request, pk):
-    # function code
-    TodoItem = get_object_or_404(TodoItem, pk=pk)
-    return render(
-        request,
-        'todo/todo_list.html',
-        {'todo': TodoItem})
 
 @login_required
-def todo_list(request, pk):
-    # Ensure the user is viewing their own list
-    if request.user.pk != pk:
-        return redirect('index')  # Prevent access to another user's todo list
+def todo_list(request):
+    # Fetch incomplete (pending) and completed to-do items for the logged-in user
+    todos = TodoItem.objects.filter(user=request.user, completed=False)
+    completed_todos = TodoItem.objects.filter(user=request.user, completed=True)
 
-    todos = TodoItem.objects.filter(user=request.user)  # Get todos for logged-in user
-    return render(request, 'todo/todo_list.html', {'todos': todos})
+    # Pass the tasks to the template for rendering
+    context = {
+        'todos': todos,
+        'completed_todos': completed_todos,
+        'is_authenticated': request.user.is_authenticated,
+    }
+
+    return render(request, 'todo/todo_list.html', context)
+
 
 
 @login_required
@@ -61,7 +61,7 @@ def edit_todo(request, todo_id):
         if form.is_valid():
             form.save()
             messages.success(request, 'Your to-do item has been successfully updated!')
-            return redirect('todos', pk=request.user.pk)  # Redirect to user's todo list
+            return redirect('todo_list')  # Redirect to user's todo list
     else:
         form = TodoForm(instance=todo)
 
@@ -71,7 +71,7 @@ def edit_todo(request, todo_id):
 @login_required
 def delete_todo(request, pk):
     # Retrieve the to-do item by its primary key (pk) and ensure it belongs to the current user
-    todo = get_object_or_404(ToDo, pk=pk, user=request.user)
+    todo = get_object_or_404(TodoItem, id=pk, user=request.user)
 
     # Check if the request is POST (for deleting)
     if request.method == 'POST':
@@ -82,9 +82,10 @@ def delete_todo(request, pk):
     # Render a confirmation page if the request is GET
     return render(
         request,
-        'todo_app/todo_confirm_delete.html',  # Template for delete confirmation
-        {'todo': todo}
-    )
+        'todo/todo_confirm_delete.html',  # Template for delete confirmation
+        {'todo': todo})
+
+
 
 def register(request):
     if request.method == 'POST':
