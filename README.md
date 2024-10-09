@@ -2,7 +2,7 @@
 
 [View the live project here](https://to-do-fullstack-application-e112b6500c74.herokuapp.com/)
 
-
+The To-Do List Application is a robust and user-friendly web application built with Django, designed to help users efficiently manage their tasks. It offers features such as user registration and authentication, allowing each user to have a personalized task management experience. Users can create, edit, and delete tasks. The application ensures that each user's data is secure and private. The interface is designed to be responsive, providing a seamless experience across various devices, whether on a desktop or mobile. This application is ideal for anyone looking to organize their tasks and improve productivity.
 
 ![Mockup]()
 
@@ -20,8 +20,62 @@
 ## User Experience (UX)
 
 ### User stories :
+US01: As a new user, I want to register an account, so that I can create and manage my to-do list.
 
-<hr>
+Acceptance Criteria:
+1.	The registration page should have fields for username, email, and password.
+2.	The user should receive a confirmation message upon successful registration.
+3.	The user should be redirected to the login page after registration.
+
+US02: As a registered user, I want to log in to my account, so that I can access my to-do list.
+
+Acceptance Criteria:
+1.	The login page should have fields for username and password.
+2.	The user should be authenticated and redirected to their dashboard upon successful login.
+3.	The user should see an error message if the login credentials are incorrect.
+
+US03: As a logged-in user, I want to create a new task, so that I can add it to my to-do list.
+
+Acceptance Criteria:
+1.	The user should see a form with fields for task title, description, and completion status.
+2.	The user should be able to submit the form to create a new task.
+3.	The new task should appear in the user's task list after creation.
+
+US04: As a logged-in user, I want to view my list of tasks, so that I can see all my to-do items.
+
+Acceptance Criteria:
+1.	The user should see a list of all tasks they have created.
+2.	Each task should display the title, description, and completion status.
+3.	The list should be accessible from the user's dashboard.
+
+US05: As a logged-in user, I want to edit an existing task, so that I can update its details.
+
+Acceptance Criteria:
+1.	The user should see an edit button/link next to each task in the task list.
+2.	Clicking the edit button/link should open a form pre-filled with the task's current details.
+3.	The user should be able to update the task's title, description, and completion status.
+4.	The updated task should appear in the task list after saving changes.
+
+US06: As a logged-in user, I want to delete a task, so that I can remove it from my to-do list.
+
+Acceptance Criteria:
+1.	The user should see a delete button/link next to each task in the task list.
+2.	Clicking the delete button/link should prompt the user to confirm the deletion.
+3.	The task should be removed from the task list upon confirmation.
+
+US07: As a logged-in user, I want to mark a task as completed, so that I can keep track of my progress.
+
+Acceptance Criteria:
+1.	The user should see a checkbox or button to mark a task as completed.
+2.	The task's completion status should be updated when the user marks it as completed.
+3.	The task should visually indicate that it is completed (e.g., strikethrough text or a different color
+
+US08: As a logged-in user, I want to log out of my account, so that I can end my session securely.
+
+Acceptance Criteria:
+1.	The user should see a logout button/link in the navigation menu.
+2.	Clicking the logout button/link should log the user out and redirect them to the login page.
+3.	The user should see a confirmation message upon successful logout.
 
 ## Features
 
