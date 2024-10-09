@@ -221,3 +221,38 @@ body {
 .btn-primary:hover {
     background-color: rgb(99, 127, 0); /* Darker color on hover */
 }
+
+/* styles.css */
+.container {
+    padding: 20px; /* Add padding for better spacing */
+}
+
+.form-group {
+    margin-bottom: 1.5rem; /* Spacing between form groups */
+}
+
+.btn-primary {
+    background-color: rgb(119, 147, 5); /* Your button color */
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: rgb(100, 130, 0); /* Darker shade on hover */
+}
+
+.todoform {
+    color: #fff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .col-md-8 {
+        width: 100%; /* Full width on small devices */
+        margin: 0; /* No margin */
+    }
+}
