@@ -249,6 +249,18 @@ body {
     color: #fff;
 }
 
+.description-container {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+}
+
+.description-container p {
+    margin: 0 2px 0 0;
+    padding: 0;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .col-md-8 {
