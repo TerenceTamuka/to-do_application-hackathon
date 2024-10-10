@@ -199,7 +199,7 @@ user_id (Foreign Key referencing User)
 
 
 __-Relationships:__
-Relationships
+
 User to TodoItem: One-to-Many
 A single user can have multiple to-do items.
 Each to-do item is linked to one user.
