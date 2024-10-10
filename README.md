@@ -172,11 +172,35 @@ Entity-Relationships Schematic Graphic of the Entity-Relationships Diagram
 ### ER Diagram Breakdown
 
 __Entities:__
+Entity-Relationship Diagram (ERD)
+Entities
+User:
+
+Attributes:
+id (Primary Key)
+username
+email
+password
+Other fields as defined by Django's built-in User model
+TodoItem:
+
+Attributes:
+id (Primary Key)
+title
+description
+created_at
+updated_at
+completed
+user_id (Foreign Key referencing User)
+
+![ERD-todo-App](https://github.com/user-attachments/assets/d86a95ad-d2bd-4c7f-8847-589c29ee3e31)
 
 
 __-Relationships:__
-
-
+Relationships
+User to TodoItem: One-to-Many
+A single user can have multiple to-do items.
+Each to-do item is linked to one user.
 
 __-Summary Methodology:__
 
