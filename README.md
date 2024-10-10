@@ -162,6 +162,8 @@ Bootstrap includes a variety of pre-designed components such as navigation bars,
 ## Design
 
 ### Wireframes
+![New Wireframe 2 (2)](https://github.com/user-attachments/assets/5e057757-0d53-46e0-9df8-bf7684e9c1af)
+
 
 Desktop Wireframes
 iPad View Wireframes
