@@ -42,6 +42,7 @@ def todo_create(request):
         if form.is_valid():
             todo = form.save(commit=False)
             todo.user = request.user  # Associate the To-Do with the logged-in user
+            due_date=todo.due_date
             todo.save()
             messages.success(request, 'Your to-do item has been successfully created!')
             return redirect('todo_list')  # Redirect to the user's todo list page
