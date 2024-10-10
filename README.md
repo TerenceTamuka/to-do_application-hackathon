@@ -4,7 +4,7 @@
 
 The To-Do List Application is a robust and user-friendly web application built with Django, designed to help users efficiently manage their tasks. It offers features such as user registration and authentication, allowing each user to have a personalized task management experience. Users can create, edit, and delete tasks. The application ensures that each user's data is secure and private. The interface is designed to be responsive, providing a seamless experience across various devices, whether on a desktop or mobile. This application is ideal for anyone looking to organize their tasks and improve productivity.
 
-![Mockup]()
+![Mockup](static/images/myTo-DoAppMockup.png)
 
 ## Index – Table of Contents
 * [User Experience UX](#user-experience-ux)
